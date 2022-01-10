@@ -1,25 +1,38 @@
-import logo from './logo.svg';
+import { React, useState } from 'react';
 import './App.css';
+import Navbar from './components/Navbar';
+import 'antd/dist/antd.css';
+import { Col, Row, Button, Layout } from 'antd';
 
-function App() {
+
+const App = () => {
+
+  const [state, setState] = useState();
+  const [activeComponemt, setActiveComponemt] = useState("hello");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Test
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <Navbar
+        setActiveComponemt={setActiveComponemt}
+      />
+      <Layout.Content>
+
+        <Col offset={2} span={20} style={{margin:10}}>
+        <Row justify="center">
+
+        </Row>
+          <Row justify="center" style={{margin:10}}>
+
+            {state}
+            {activeComponemt}
+
+          </Row>
+        </Col>
+
+      </Layout.Content>
+    </Layout>
   );
-}
+};
+
 
 export default App;
