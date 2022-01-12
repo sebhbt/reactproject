@@ -1,13 +1,7 @@
-import { Result } from "antd";
-import { disableNetwork } from "firebase/firestore";
+import './Page.css'
 
-function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min;
-}
 
-const Page = (props) => {
+const Page = () => {
     var myHeaders = new Headers();
     myHeaders.append("x-rapidapi-key", "7bf3890efb932a4a1a8e5bd6d2e69b84");
     myHeaders.append("x-rapidapi-host", "v1.basketball.api-sports.io");
@@ -23,17 +17,21 @@ const Page = (props) => {
     fetch(API, requestOptions)
         .then(response => response.json())
         .then(data => {
-            let htmlTeams = `<h2> NBA Teams </h2>`;
+            let htmlTeams = ``;
             const teams = data['response'];
             teams.forEach((team) => {
                 const {id, name, logo} = team;
                 htmlTeams +=
-                    `<div>
-                    <img src="${logo}">
-                        <h5> Team ID: ${id} </h5>
-                        <ul>
-                            <li>Team name: ${name}</li>
-                        </ul>
+                    `<div class="card-team">
+                        <div class="card-team-image">
+                            <img src="${logo}">
+                        </div>
+                        <div class="card-team-title">
+                            <h4>Team name: ${name}</h4>
+                        </div>
+                        <div class="card-team-excerpt">
+                            <p> Team ID: ${id} <p>
+                        </div>
                     </div>`;
                 document.getElementById('teamsNBA').innerHTML = htmlTeams;
             })
@@ -41,10 +39,10 @@ const Page = (props) => {
         .catch(error => console.log('error', error));
 
     return (
-        <div className="statusContainer">
-            Bienvenue sur une page NBA. Veuillez vous connecter pour continuer
-            <div id="teamsNBA">
-
+        <div class="main">
+            <h1> NBA Teams </h1>
+            <h2>Bienvenue sur une page NBA. Veuillez vous connecter pour continuer</h2>
+            <div id="teamsNBA" class="container-grid">
             </div>
         </div>
     );

@@ -16,19 +16,8 @@ const App = () => {
         setActiveComponemt={setActiveComponemt}
       />
       <Layout.Content>
-
-        <Col offset={2} span={20} style={{margin:10}}>
-        <Row justify="center">
-
-        </Row>
-          <Row justify="center" style={{margin:10}}>
-
             {state}
             {activeComponemt}
-
-          </Row>
-        </Col>
-
       </Layout.Content>
     </Layout>
   );

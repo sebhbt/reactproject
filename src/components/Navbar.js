@@ -40,7 +40,6 @@ const {setActiveComponemt} = props;
     
     return ( 
         <Layout.Header>
- 
             <Menu mode="horizontal" defaultSelectedKeys={['Item1']}>
                 {labels.map(label => createMenuItem(label))}
             </Menu>

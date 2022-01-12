@@ -2,14 +2,12 @@ import React, { useState } from 'react';
 import {
     Form,
     Input,
-    Select,
     Checkbox,
     Button,
     message
 } from 'antd';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import Dashboard from './Dashboard';
-import { collection, addDoc } from "firebase/firestore"; 
 
 const auth = getAuth();
 
@@ -63,8 +61,8 @@ const Profile = (props) => {
 
         })
         .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
+        console.log(error.code);
+        console.log(error.message);
         });
     };
 
