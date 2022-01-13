@@ -1,30 +1,34 @@
 import { Menu } from 'antd';
-import React from "react";
+import {React, useEffect} from "react";
 import { HomeOutlined, UserOutlined, UserAddOutlined } from '@ant-design/icons';
 import Login from './Login';
-import Accueil from './Accueil';
-import Profile from './Profile';
+import Home from './Home';
+import Register from './Register';
 
 
 const Navbar = (props) => {
-    const { setActiveComponemt } = props;
+    const { setActiveComponent } = props;
+
+    useEffect(() => {
+        setActiveComponent(<Home title="Accueil" />);
+    }, [setActiveComponent]);
 
     const labels = [
         {
             key: "Accueil",
-            action: () => setActiveComponemt(<Accueil setActiveComponemt={setActiveComponemt} />),
+            action: () => setActiveComponent(<Home setActiveComponent={setActiveComponent} />),
             title: "Accueil",
             icon: <HomeOutlined />
         },
         {
             key: "Connexion",
-            action: () => setActiveComponemt(<Login setActiveComponemt={setActiveComponemt} />),
+            action: () => setActiveComponent(<Login setActiveComponent={setActiveComponent} />),
             title: "Connexion",
             icon: <UserOutlined />
         },
         {
             key: "Inscription",
-            action: () => setActiveComponemt(<Profile setActiveComponemt={setActiveComponemt} />),
+            action: () => setActiveComponent(<Register setActiveComponent={setActiveComponent} />),
             title: "Inscription",
             icon: <UserAddOutlined />
         }
@@ -36,7 +40,6 @@ const Navbar = (props) => {
                 {label.icon} {label.title}
             </Menu.Item>
         );
-
     };
 
     return (

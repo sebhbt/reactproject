@@ -35,7 +35,7 @@ const tailFormItemLayout = {
     },
 };
 
-const Profile = (props) => {
+const Register = (props) => {
 
     const [form] = Form.useForm();
     const onFinish = (values) => {
@@ -45,7 +45,7 @@ const Profile = (props) => {
                 const user = userCredential.user;
                 console.log(user);
                 message.success("Bravo vous êtes inscrits");
-                props.setActiveComponemt(<Dashboard />);
+                props.setActiveComponent(<Dashboard />);
 
             })
             .catch((error) => {
@@ -169,4 +169,4 @@ const Profile = (props) => {
     );
 }
 
-export default Profile
+export default Register;

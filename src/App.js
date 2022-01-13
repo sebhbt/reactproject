@@ -1,7 +1,7 @@
 import { React, useState } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
-import Accueil from './components/Accueil'
+import Home from './components/Home'
 import 'antd/dist/antd.min.css';
 import { Layout } from 'antd';
 
@@ -9,18 +9,18 @@ import { Layout } from 'antd';
 const App = () => {
 
     const [state] = useState();
-    const [activeComponemt, setActiveComponemt] = useState(<Accueil title="Accueil" />);
+    const [activeComponent, setActiveComponent] = useState(<Home title="Accueil" />);
 
     return (
         <Layout>
             <Layout.Header>
                 <Navbar
-                    setActiveComponemt={setActiveComponemt}
+                    setActiveComponent={setActiveComponent}
                 />
             </Layout.Header>
             <Layout.Content>
                 {state}
-                {activeComponemt}
+                {activeComponent}
             </Layout.Content>
         </Layout>
     );

@@ -1,17 +1,22 @@
-import '../styles/Accueil.css'
+import '../styles/Home.css'
+import React from "react";
+import Team from './Team'
 
-
-const Page = (props) => {
+const Home = (props) => {
     var myHeaders = new Headers();
     myHeaders.append("x-rapidapi-key", "7bf3890efb932a4a1a8e5bd6d2e69b84");
     myHeaders.append("x-rapidapi-host", "v1.basketball.api-sports.io");
 
-    /*var requestOptions = {
+    function goToTeam(id) {
+        props.setActiveComponent(<Team id={id} />);
+    }
+/*
+    var requestOptions = {
         method: 'GET',
         headers: myHeaders,
         redirect: 'follow'
     };
-    
+
     const API = "https://v1.basketball.api-sports.io/teams?season=2021-2022&league=12";
     fetch(API, requestOptions)
         .then(response => response.json())
@@ -19,10 +24,10 @@ const Page = (props) => {
             let htmlTeams = ``;
             const teams = data['response'];
             teams.forEach((team) => {
-                const {id, name, logo} = team;
+                const { id, name, logo } = team;
                 htmlTeams +=
                     `<div class="card-team">
-                        <a href="">
+                        <a onClick="${() => goToTeam(id)}">
                             <div class="card-team-image">
                                 <img src="${logo}">
                             </div>
@@ -30,10 +35,10 @@ const Page = (props) => {
                                 <h4>Team name: ${name}</h4>
                             </div>
                             <div class="card-team-excerpt">
-                                <p> Team ID: ${id} <p>
+                                <p> Team ID: ${id} </p>
                             </div>
                         </a>
-                    </div>`;
+                    </div>`
                 document.getElementById('teamsNBA').innerHTML = htmlTeams;
             })
         })
@@ -69,4 +74,4 @@ const Page = (props) => {
     }**/
 };
 
-export default Page
+export default Home;
