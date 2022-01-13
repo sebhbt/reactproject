@@ -6,4 +6,4 @@ export const firebaseConfig = {
     storageBucket: "eseo-982cb.appspot.com",
     messagingSenderId: "253693468046",
     appId: "1:253693468046:web:df31871ff8a963ad4b18df"
-  };
+};

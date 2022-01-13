@@ -1,26 +1,29 @@
 import { React, useState } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
-import 'antd/dist/antd.css';
-import { Col, Row, Button, Layout } from 'antd';
+import Accueil from './components/Accueil'
+import 'antd/dist/antd.min.css';
+import { Layout } from 'antd';
 
 
 const App = () => {
 
-  const [state, setState] = useState();
-  const [activeComponemt, setActiveComponemt] = useState("hello");
+    const [state] = useState();
+    const [activeComponemt, setActiveComponemt] = useState(<Accueil title="Accueil" />);
 
-  return (
-    <Layout>
-      <Navbar
-        setActiveComponemt={setActiveComponemt}
-      />
-      <Layout.Content>
-            {state}
-            {activeComponemt}
-      </Layout.Content>
-    </Layout>
-  );
+    return (
+        <Layout>
+            <Layout.Header>
+                <Navbar
+                    setActiveComponemt={setActiveComponemt}
+                />
+            </Layout.Header>
+            <Layout.Content>
+                {state}
+                {activeComponemt}
+            </Layout.Content>
+        </Layout>
+    );
 };
 
 

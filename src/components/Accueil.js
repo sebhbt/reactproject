@@ -1,19 +1,18 @@
-import './Page.css'
+import '../styles/Accueil.css'
 
 
-const Page = () => {
+const Page = (props) => {
     var myHeaders = new Headers();
     myHeaders.append("x-rapidapi-key", "7bf3890efb932a4a1a8e5bd6d2e69b84");
     myHeaders.append("x-rapidapi-host", "v1.basketball.api-sports.io");
 
-    var requestOptions = {
+    /*var requestOptions = {
         method: 'GET',
         headers: myHeaders,
         redirect: 'follow'
     };
     
     const API = "https://v1.basketball.api-sports.io/teams?season=2021-2022&league=12";
-
     fetch(API, requestOptions)
         .then(response => response.json())
         .then(data => {
@@ -23,30 +22,32 @@ const Page = () => {
                 const {id, name, logo} = team;
                 htmlTeams +=
                     `<div class="card-team">
-                        <div class="card-team-image">
-                            <img src="${logo}">
-                        </div>
-                        <div class="card-team-title">
-                            <h4>Team name: ${name}</h4>
-                        </div>
-                        <div class="card-team-excerpt">
-                            <p> Team ID: ${id} <p>
-                        </div>
+                        <a href="">
+                            <div class="card-team-image">
+                                <img src="${logo}">
+                            </div>
+                            <div class="card-team-title">
+                                <h4>Team name: ${name}</h4>
+                            </div>
+                            <div class="card-team-excerpt">
+                                <p> Team ID: ${id} <p>
+                            </div>
+                        </a>
                     </div>`;
                 document.getElementById('teamsNBA').innerHTML = htmlTeams;
             })
         })
-        .catch(error => console.log('error', error));
+        .catch(error => console.log('error', error));*/
 
     return (
-        <div class="main">
+        <div className="main">
             <h1> NBA Teams </h1>
             <h2>Bienvenue sur une page NBA. Veuillez vous connecter pour continuer</h2>
-            <div id="teamsNBA" class="container-grid">
+            <div id="teamsNBA" className="container-grid">
             </div>
         </div>
     );
-        
+
     /**function NBATeams() {
         const [teams, setMovies] = useState([]);
         const setActiveComponent = useState()
