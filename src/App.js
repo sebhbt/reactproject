@@ -8,7 +8,6 @@ import { Layout } from 'antd';
 
 const App = () => {
 
-    const [state] = useState();
     const [activeComponent, setActiveComponent] = useState(<Home title="Accueil" />);
 
     return (
@@ -19,7 +18,6 @@ const App = () => {
                 />
             </Layout.Header>
             <Layout.Content>
-                {state}
                 {activeComponent}
             </Layout.Content>
         </Layout>

@@ -10,7 +10,7 @@ const Navbar = (props) => {
     const { setActiveComponent } = props;
 
     useEffect(() => {
-        setActiveComponent(<Home title="Accueil" />);
+        setActiveComponent(<Home setActiveComponent={setActiveComponent}/>);
     }, [setActiveComponent]);
 
     const labels = [
