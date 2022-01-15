@@ -29,10 +29,13 @@ const Team = (props) => {
                         <img src={team.team.logo} alt={team.team.name} />
                     </div>
                     <div className="card-team-title">
-                        <h4>Team name: {team.team.name}</h4>
+                        <h2>{team.team.name}</h2>
                     </div>
                     <div className="card-team-excerpt">
-                        <p> Team ID: {team.team.id} </p>
+                        <p>Match played : {team.games.played.all} <br/>
+                        Wins : {team.games.wins.all.total} <br/>
+                        Draws : {team.games.draws.all.total} <br/>
+                        Loses : {team.games.loses.all.total} </p>
                     </div>
                 </div>
             </>

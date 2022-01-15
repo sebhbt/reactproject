@@ -9,7 +9,7 @@ const Home = (props) => {
     myHeaders.append("x-rapidapi-key", "7bf3890efb932a4a1a8e5bd6d2e69b84");
     myHeaders.append("x-rapidapi-host", "v1.basketball.api-sports.io");
 
-    var requestOptions = {
+    const requestOptions = {
         method: 'GET',
         headers: myHeaders,
         redirect: 'follow'
@@ -18,6 +18,7 @@ const Home = (props) => {
     const API = "https://v1.basketball.api-sports.io/teams?season=2021-2022&league=12";
     
     const [teams, setTeams] = useState();
+
     useEffect(() => {
         fetch(API, requestOptions)
             .then(response => response.json())
@@ -40,10 +41,7 @@ const Home = (props) => {
                                 <img src={team.logo} alt={team.name} />
                             </div>
                             <div className="card-team-title">
-                                <h4>Team name: {team.name}</h4>
-                            </div>
-                            <div className="card-team-excerpt">
-                                <p> Team ID: {team.id} </p>
+                                <h2>{team.name}</h2>
                             </div>
                         </a>
                     </div>
